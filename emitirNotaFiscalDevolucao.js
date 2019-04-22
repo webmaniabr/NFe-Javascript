@@ -1,13 +1,10 @@
-/**
- * Status do Sefaz
- *
- * OBS: A utilização do endpoint deve ser realizada como demonstrativo do Status do
- * Sefaz em sua plataforma, sendo necessário trabalhar com cache de ao menos 10 minutos.
- * Não é necessário realizar a requisição antes da emissão de cada Nota Fiscal,
- * porque este procedimento é realizado de forma automática em todos os endpoints.
- */
-
-var data = null;
+var data = JSON.stringify({
+  "chave": "00000000000000000000000000000000000000000000",
+  "natureza_operacao": "Devolução de venda de produção do estabelecimento",
+  "codigo_cfop": "1.202",
+  "produtos": [2, 3],
+  "ambiente": "2"
+});
 
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
@@ -20,7 +17,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://webmaniabr.com/api/1/nfe/sefaz/");
+xhr.open("POST", "https://webmaniabr.com/api/1/nfe/devolucao/");
 xhr.setRequestHeader("cache-control", "no-cache");
 xhr.setRequestHeader("content-type", "application/json");
 xhr.setRequestHeader("x-consumer-key", "SEU_CONSUMER_KEY");

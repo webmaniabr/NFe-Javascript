@@ -1,5 +1,7 @@
 var data = null;
 
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 

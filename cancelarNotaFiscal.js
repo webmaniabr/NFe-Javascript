@@ -1,8 +1,20 @@
+/**
+* Cancelar Nota Fiscal
+*
+* Atenção: Somente poderá ser cancelada uma NF-e cujo uso tenha sido previamente
+* autorizado pelo Fisco e desde que não tenha ainda ocorrido o fato gerador, ou seja,
+* ainda não tenha ocorrido a saída da mercadoria do estabelecimento. Atualmente o prazo
+* máximo para cancelamento de uma NF-e é de 24 horas (1 dia), contado a partir da autorização
+* de uso. Caso já tenha passado o prazo de 24 horas ou já tenha ocorrido a circulação da
+* mercadoria, emita uma NF-e de devolução para anular a NF-e anterior.
+*/
+
 var data = JSON.stringify({
-  "chave": "45150819652219000198550990000000011442380343",
-  "motivo": "Cancelamento por motivos administrativos.",
-  "ambiente": "1"
+  "chave": "00000000000000000000000000000000000000000000",
+  "motivo": "Cancelamento por motivos administrativos."
 });
+
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;

@@ -1,8 +1,16 @@
+/**
+* Informações da Carta de Correção
+*
+* A Carta de Correção Eletrônica (CC-e) é um evento legal e tem por objetivo
+* corrigir algumas informações da NF-e que já foi emitida.
+*/
+
 var data = JSON.stringify({
-  "chave": "45150819652219000198550990000000011442380343",
-  "correcao": "O CFOP correto é 5.102 referente a revenda tributada no mesmo estado.",
-  "ambiente": "1"
+  "chave": "00000000000000000000000000000000000000000000",
+  "correcao": "O CFOP correto é 5.102 referente a revenda tributada no mesmo estado."
 });
+
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;

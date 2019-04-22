@@ -1,10 +1,12 @@
 var data = JSON.stringify({
   "sequencia": "101-109",
   "motivo": "Inutilização por problemas técnicos.",
-  "ambiente": "1",
+  "ambiente": "2",
   "serie": "99",
   "modelo": "1"
 });
+
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;

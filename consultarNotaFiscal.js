@@ -1,11 +1,10 @@
 /**
- * Status do Sefaz
- *
- * OBS: A utilização do endpoint deve ser realizada como demonstrativo do Status do
- * Sefaz em sua plataforma, sendo necessário trabalhar com cache de ao menos 10 minutos.
- * Não é necessário realizar a requisição antes da emissão de cada Nota Fiscal,
- * porque este procedimento é realizado de forma automática em todos os endpoints.
- */
+* Consulta de Nota fiscal
+*
+* Atenção: Somente é permitido consultar a chave da nota fiscal emitida pelo
+* emissor da WebmaniaBR, não sendo possível consultar nota fiscal de terceiro
+* ou emitida em outro sistema.
+*/
 
 var data = null;
 
@@ -20,7 +19,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://webmaniabr.com/api/1/nfe/sefaz/");
+xhr.open("GET", "https://webmaniabr.com/api/1/nfe/consulta/?chave=00000000000000000000000000000000000000000000");
 xhr.setRequestHeader("cache-control", "no-cache");
 xhr.setRequestHeader("content-type", "application/json");
 xhr.setRequestHeader("x-consumer-key", "SEU_CONSUMER_KEY");
