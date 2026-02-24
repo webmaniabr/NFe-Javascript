@@ -2,39 +2,36 @@
   <img src="https://wmbr.s3.amazonaws.com/img/logo_webmaniabr_github2.png">
 </p>
 
-# NFe-Javascript
+# ⚠️ Repositório Descontinuado
 
-Através do emissor de Nota Fiscal da Webmania®, você conta com a emissão e arquivamento das suas notas fiscais, cálculo automático de impostos, geração do Danfe para impressão e envio automático de e-mails para os clientes. Realize a integração com o seu sistema utilizando a nossa REST API.
+> **Este repositório foi descontinuado e não receberá mais atualizações ou correções de segurança.**
 
-- Emissor de Nota Fiscal Webmania®: [Saiba mais](https://webmaniabr.com/nota-fiscal-eletronica/)
-- Documentação REST API: [Visualizar](https://webmaniabr.com/docs/rest-api-nfe/)
+**Migre para a integração via Node.js:** [webmaniabr/NFe-NodeJS](https://github.com/webmaniabr/NFe-NodeJS)
 
-## Requisitos
+---
 
-- Contrate um dos planos de Nota Fiscal Eletrônica da Webmania®: [Assine agora mesmo](https://webmaniabr.com/nota-fiscal-eletronica/#plans-section).
-- Realize a integração com o seu sistema.
+## Por que este repositório foi descontinuado?
 
-## Exemplos
+Este repositório utilizava chamadas Ajax diretamente do front-end (navegador) para a API de emissão de Nota Fiscal. Essa abordagem apresenta riscos críticos de segurança:
 
-Desenvolvimento baseado na classe nativa [XMLHttpRequest](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest).
+- **Exposição de credenciais**: As chaves de API (`consumer_key`, `consumer_secret`, `access_token`, `access_token_secret`) ficam expostas no código-fonte do navegador, permitindo que qualquer pessoa inspecione e copie suas credenciais.
+- **Ausência de controle server-side**: Sem uma camada de back-end, não há como validar, sanitizar ou controlar as requisições antes de enviá-las à API, abrindo margem para manipulação de dados e uso indevido.
+- **Vulnerabilidade a CSRF/XSS**: Requisições feitas diretamente do navegador são suscetíveis a ataques de Cross-Site Request Forgery e Cross-Site Scripting, podendo resultar em emissão não autorizada de documentos fiscais.
+- **Impossibilidade de auditoria**: Sem um servidor intermediário, não há como registrar logs confiáveis das operações realizadas, dificultando a rastreabilidade exigida pela legislação fiscal.
 
-- **cancelarNotaFiscal**: Cancelar Nota Fiscal enviada ao SEFAZ.
-- **cartaCorrecao**: Corrigir uma Nota Fiscal junto ao SEFAZ.
-- **consultarNotaFiscal**: Consulta a Nota Fiscal enviada para o SEFAZ.
-- **emitirNotaFiscal_Armamentos**: Emissão da Nota Fiscal com detalhamento específico de Armamentos.
-- **emitirNotaFiscal_Combustivel**: Emissão da Nota Fiscal com detalhamento específico de Combustivel.
-- **emitirNotaFiscal_Medicamentos**: Emissão da Nota Fiscal com detalhamento específico de Medicamentos.
-- **emitirNotaFiscal_Rastreabilidade**: Emissão da Nota Fiscal com detalhamento específico de Rastreabilidade.
-- **emitirNotaFiscal_VeiculosNovos**: Emissão da Nota Fiscal com detalhamento específico de Veiculos Novos.
-- **emitirNotaFiscal**: Emissão da Nota Fiscal junto ao SEFAZ.
-- **emitirNotaFiscalAjuste**: Emite uma nota fiscal de ajuste.
-- **emitirNotaFiscalComplementar_Imposto**: Emite uma Nota Fiscal complementar.
-- **emitirNotaFiscalComplementar_PrecoQuantidade**: Emite uma Nota Fiscal complementar.
-- **emitirNotaFiscalDevolucao**: Emissão de Nota Fiscal de devolução junto ao SEFAZ.
-- **inutilizarNumeracao**: Inutilizar sequência de numeração junto ao SEFAZ.
-- **statusSefaz**: Verifica se o Sefaz está Online ou Offline.
-- **validadeCertificadoA1**: Verifica se o Certificado A1 é válido e quantos dias faltam para expirar.
+## Migração recomendada
+
+Utilize a integração via **Node.js** no back-end, que resolve todos os pontos acima:
+
+🔗 **[webmaniabr/NFe-NodeJS](https://github.com/webmaniabr/NFe-NodeJS)**
+
+### Benefícios da integração server-side
+
+- **Credenciais protegidas**: As chaves de API ficam armazenadas exclusivamente no servidor, inacessíveis ao cliente.
+- **Validação e sanitização**: Todas as requisições passam pelo seu back-end antes de chegarem à API, permitindo validação de dados, rate limiting e controle de acesso.
+- **Logs e auditoria**: Registre todas as operações de emissão, cancelamento e consulta para conformidade fiscal e rastreabilidade.
+- **Arquitetura escalável**: Node.js oferece I/O não-bloqueante, ideal para lidar com alto volume de requisições à API de forma eficiente.
 
 ## Suporte
 
-Qualquer dúvida entre em contato na nossa [Central de Ajuda](https://ajuda.webmaniabr.com) ou acesse o [Painel de Controle](https://webmaniabr.com/painel/) para conversar em tempo real no Chat ou Abrir um chamado.
+Qualquer dúvida entre em contato na nossa [Central de Ajuda](https://ajuda.webmaniabr.com) ou acesse o [Painel de Controle](https://webmaniabr.com/painel/) para conversar em tempo real no Chat ou abrir um chamado.
