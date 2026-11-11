@@ -4,9 +4,18 @@
 
 # ⚠️ Repositório Descontinuado
 
-> **Este repositório foi descontinuado e não receberá mais atualizações ou correções de segurança.**
+<!-- deprecation-notice:start -->
+> [!WARNING]
+> **Repositório descontinuado.** Esta integração legada não receberá novas funcionalidades, manutenção ou correções de segurança.
+>
+> Para novas integrações e migrações planejadas, utilize o **[Webmania SDK para Node.js e TypeScript](https://github.com/webmaniabr/webmania-node)** no back-end.
 
-**Migre para a integração via Node.js:** [webmaniabr/NFe-NodeJS](https://github.com/webmaniabr/NFe-NodeJS)
+**Integrações existentes:** este aviso não desativa a API nem exige migração imediata. O código e os arquivos desta versão permanecem disponíveis.
+
+**Migração:** o novo SDK possui interface e requisitos próprios. Consulte o [README do novo SDK](https://github.com/webmaniabr/webmania-node#readme), adapte as chamadas da sua aplicação e valide a integração em homologação antes de migrar para produção.
+
+**Credenciais:** mantenha as credenciais da API no servidor; não as exponha no código enviado ao navegador.
+<!-- deprecation-notice:end -->
 
 ---
 
@@ -23,7 +32,7 @@ Este repositório utilizava chamadas Ajax diretamente do front-end (navegador) p
 
 Utilize a integração via **Node.js** no back-end, que resolve todos os pontos acima:
 
-🔗 **[webmaniabr/NFe-NodeJS](https://github.com/webmaniabr/NFe-NodeJS)**
+🔗 **[webmaniabr/webmania-node](https://github.com/webmaniabr/webmania-node)**
 
 ### Benefícios da integração server-side
 
